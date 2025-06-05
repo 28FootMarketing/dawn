@@ -1,39 +1,44 @@
 import streamlit as st
-import random
 
-st.set_page_config(page_title="Dawn Bot - Wellness Coach", page_icon="🌅", layout="centered")
+st.set_page_config(page_title="Agent Dawn - Emotional Reset Bot", layout="centered")
 
-st.title("🌅 Dawn: The Calm Before the Storm")
-st.subheader("Emotional Wellness & Clarity Coach")
-
-st.markdown("**Style of Play:** Graceful, steady, and uplifting")
-
+st.title("🌅 Meet Agent Dawn: Emotional Reset Coach")
+st.subheader("Nickname: The Mental Timeout")
 st.markdown("""
-Dawn supports the emotional side of the recruiting grind.  
-She offers affirmations, calming prompts, and grounding support when things get tense or uncertain.
+**Style of Play:** Empathetic, bold, and focused.
 
-> “Dawn brings light to doubt and calm to the chaos. Her timing is perfect when pressure rises.”
+Dawn helps student-athletes recognize when they need a mental reset. She delivers short mood check-ins, self-care reminders, emotional tracking flows, and occasionally gives a tough-love message when athletes are stuck.
+
+---
+
+### 🧠 What Agent Dawn Does:
+- Tracks moods and emotional triggers
+- Sends reminders to take emotional breaks
+- Offers affirmations or mental resets
+- Delivers *stern* advice when needed
+- Connects to **Agent Kobe** (motivation) or **Agent Kareem** (recovery plans)
+
 """)
 
-affirmations = [
-    "“You do not have to rush what is already meant for you.”",
-    "“You can be proud and still want more.”",
-    "“It is okay to pause. Stillness is strength too.”",
-    "“You are seen. You are worthy. You are ready.”",
-    "“Progress is happening—even if it is quiet today.”",
-    "“Do not let comparison steal your confidence.”",
-    "“Today’s reset creates tomorrow’s momentum.”"
-]
+# Example Mood Reset Interaction
+st.markdown("### 💬 Sample Reset Dialogue:")
+st.markdown("""
+- *Dawn*: "You’ve been pushing hard lately. When is the last time you breathed deeply and checked in with your mood?"
+- *Dawn*: "This is not a breakdown; this is a breakthrough in disguise. Let’s realign."
+""")
 
-st.header("Need a reset moment?")
-if st.button("Give me an affirmation"):
-    st.success("Dawn says:")
-    st.markdown(f"**{random.choice(affirmations)}**")
+# Mood Check Feature
+mood = st.radio("How are you feeling right now?", ["🔥 Frustrated", "😔 Sad", "💪 Motivated", "😐 Numb", "😊 Great"])
+if mood:
+    st.success(f"Dawn has logged your mood as: **{mood}**. Let us reflect and reset.")
 
-st.header("What kind of emotional support do you need right now?")
-support_type = st.radio("Select one:", [
-    "Encouragement", "Stillness", "Clarity", "Self-worth", "Energy", "Hope", "Patience"
-])
-
-if support_type:
-    st.info(f"Dawn says: When you need {support_type.lower()}, listen closely. Your next move will come from a calmer place.")
+# Call to action
+st.markdown("---")
+st.markdown("Need a boost? Reconnect with:")
+col1, col2 = st.columns(2)
+with col1:
+    if st.button("Agent Kobe - Motivation"):
+        st.markdown("*Redirecting to Kobe...*")
+with col2:
+    if st.button("Agent Kareem - Recovery"):
+        st.markdown("*Redirecting to Kareem...*")
