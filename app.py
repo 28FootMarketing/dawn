@@ -1,44 +1,34 @@
 import streamlit as st
 
-st.set_page_config(page_title="Agent Dawn - Emotional Reset Bot", layout="centered")
+st.set_page_config(page_title="Agent Dawn - Emotional Reset", layout="centered")
 
-st.title("🌅 Meet Agent Dawn: Emotional Reset Coach")
-st.subheader("Nickname: The Mental Timeout")
+st.title("🌅 Meet Agent Dawn - Emotional Reset & Self-Care Advisor")
 st.markdown("""
-**Style of Play:** Empathetic, bold, and focused.
+**Role:** Emotional Reset & Self-Care Agent  
+**Nickname:** "The Reset Button"  
+**Style of Play:** Calm, reflective, but unapologetically real.  
+**Job Description:**  
+Dawn checks in with student-athletes emotionally. She delivers mood-based affirmations, confidence rebuilders, and if needed—stern reminders to refocus. She connects users to motivational flows powered by Kobe or Kareem.
 
-Dawn helps student-athletes recognize when they need a mental reset. She delivers short mood check-ins, self-care reminders, emotional tracking flows, and occasionally gives a tough-love message when athletes are stuck.
-
----
-
-### 🧠 What Agent Dawn Does:
-- Tracks moods and emotional triggers
-- Sends reminders to take emotional breaks
-- Offers affirmations or mental resets
-- Delivers *stern* advice when needed
-- Connects to **Agent Kobe** (motivation) or **Agent Kareem** (recovery plans)
-
+> "Reset your mindset, recalibrate your focus. Dawn helps you rise strong."
 """)
 
-# Example Mood Reset Interaction
-st.markdown("### 💬 Sample Reset Dialogue:")
-st.markdown("""
-- *Dawn*: "You’ve been pushing hard lately. When is the last time you breathed deeply and checked in with your mood?"
-- *Dawn*: "This is not a breakdown; this is a breakthrough in disguise. Let’s realign."
-""")
+# Mood check-in interface
+st.subheader("How are you feeling today?")
+mood = st.radio("Choose one:", ["😃 Great", "😐 Okay", "😞 Struggling"])
 
-# Mood Check Feature
-mood = st.radio("How are you feeling right now?", ["🔥 Frustrated", "😔 Sad", "💪 Motivated", "😐 Numb", "😊 Great"])
-if mood:
-    st.success(f"Dawn has logged your mood as: **{mood}**. Let us reflect and reset.")
+if mood == "😃 Great":
+    st.success("Awesome! Keep riding that wave. Remember, confidence is contagious.")
+elif mood == "😐 Okay":
+    st.info("Staying balanced is a win. Want to recharge with a Kobe training boost?")
+    if st.button("Yes, connect me to Kobe"):
+        st.write("✅ Connecting to Kobe’s motivational flow...")
+elif mood == "😞 Struggling":
+    st.warning("Sometimes you need a reset.")
+    if st.button("Reset with Dawn’s Affirmation"):
+        st.markdown("**'You are built for this moment. Get up, reset, and move with intention.'**")
+    if st.button("Connect to Kareem for Recovery"):
+        st.write("🔁 Sending you to Kareem’s recovery path...")
 
-# Call to action
 st.markdown("---")
-st.markdown("Need a boost? Reconnect with:")
-col1, col2 = st.columns(2)
-with col1:
-    if st.button("Agent Kobe - Motivation"):
-        st.markdown("*Redirecting to Kobe...*")
-with col2:
-    if st.button("Agent Kareem - Recovery"):
-        st.markdown("*Redirecting to Kareem...*")
+st.caption("Agent Dawn is part of your All-Star AI Support Team | FacilitateTheProcess.com")
